@@ -1,10 +1,4 @@
-<div style="position: relative; width: fit-content; margin: auto;">
-	<a href="https://drive.google.com/file/d/1NjPumumvjBCWaDsKOz977TDqh0bqjGNJ/view?usp=sharing" target="_blank">
-		<img src="public/snap.png"
-			 alt="Demo Video Preview"
-			 style="width: 100%; max-width: 600px; border-radius: 8px; display: block;">
-	</a>
-</div>
+
 
 
 **Overview**
