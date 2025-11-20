@@ -1,3 +1,10 @@
+<p align="center" style="position: relative; display: inline-block;">
+	<a href="https://drive.google.com/file/d/1NjPumumvjBCWaDsKOz977TDqh0bqjGNJ/view?usp=sharing" target="_blank" style="display: inline-block; position: relative;">
+		<img src="public/snap.png" alt="Demo Video Preview" style="width: 100%; max-width: 600px; border-radius: 8px; display: block;">
+		<img src="https://img.icons8.com/ios-filled/100/ffffff/play-button-circled.png" alt="Play Video" style="position: absolute; top: 50%; left: 50%; width: 80px; height: 80px; transform: translate(-50%, -50%); opacity: 0.8; pointer-events: none;" />
+	</a>
+</p>
+
 <a href="public/demo.mp4" target="_blank">
 	<img src="https://img.icons8.com/ios-filled/100/000000/play-button-circled.png" alt="Play Demo Video" width="80" style="vertical-align:middle; margin-right:10px;"/>
 	<b>Watch Demo Video</b>
