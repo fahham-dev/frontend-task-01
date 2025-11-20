@@ -4,6 +4,7 @@ import TextField from "./ui/TextField";
 import DropDown from "./ui/DropDown";
 
 const initialForm: Student = {
+  id: undefined,
   name: "",
   email: "",
   level: "",
@@ -12,11 +13,13 @@ const initialForm: Student = {
 const CreateStudentModel = ({
   onClose,
   onAddStudent,
+  initialData,
 }: {
   onClose: () => void;
   onAddStudent: (student: Student) => void;
+  initialData?: Student | null;
 }) => {
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState<Student>(initialData ?? initialForm);
   const [errors, setErrors] = useState<Partial<typeof initialForm>>({});
   const [submitting, setSubmitting] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
@@ -28,7 +31,15 @@ const CreateStudentModel = ({
       "input,select"
     ) as HTMLElement | null;
     input?.focus();
-  }, []);
+  }, [initialData]);
+
+  useEffect(() => {
+    if (initialData) {
+      setForm(initialData);
+    } else {
+      setForm(initialForm);
+    }
+  }, [initialData]);
 
   const validate = () => {
     const fields: Partial<typeof initialForm> = {};
@@ -58,7 +69,10 @@ const CreateStudentModel = ({
     setSubmitting(true);
 
     setTimeout(() => {
-      const studentToAdd: Student = { ...form, level: Number(form.level) };
+      const studentToAdd: Student = {
+        ...(form as Student),
+        level: Number(form.level),
+      };
       onAddStudent(studentToAdd);
       setSubmitting(false);
       onClose();
@@ -79,13 +93,15 @@ const CreateStudentModel = ({
         aria-modal="true"
         className="relative w-full max-w-xl mx-4 bg-white dark:bg-slate-800 rounded-lg shadow-2xl p-6 md:p-8 ring-1 ring-black/5 dark:ring-white/5"
       >
-        <div className="flex items-start justify-between gap-4">
+          <div className="flex items-start justify-between gap-4">
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-              Create Student
+              {initialData ? "Edit Student" : "Create Student"}
             </h3>
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-300">
-              All field are required to create a new student.
+              {initialData
+                ? "Update the details and save changes."
+                : "All field are required to create a new student."}
             </p>
           </div>
 
@@ -100,25 +116,27 @@ const CreateStudentModel = ({
 
         <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-1 gap-4">
           <TextField
-            label={"Name*"}
+            label={"Name"}
             name={"name"}
             value={form.name}
             onChange={handleChange}
             errorName={errors && errors.name}
+            placeholder="Student name"
           />
 
           <TextField
-            label={"E-mail*"}
+            label={"E-mail"}
             name={"email"}
             value={form.email}
             onChange={handleChange}
             errorName={errors && errors.email}
+            placeholder="Student email address"
           />
 
           <DropDown
-            label={"Level*"}
-            value={form.level.toString()}
-            levels={levels}
+            label={"Level *"}
+            value={String(form.level)}
+            options={levels}
             onChange={handleChange}
             errorName={errors && errors.level?.toString()}
           />
@@ -137,7 +155,7 @@ const CreateStudentModel = ({
               disabled={submitting}
               className="inline-flex items-center justify-center rounded-md bg-[#000000bd] text-white px-4 py-2 text-sm font-medium hover:bg-[#000000f7] disabled:opacity-60 cursor-pointer"
             >
-              {submitting ? "Saving..." : "Create"}
+              {submitting ? "Saving..." : initialData ? "Save" : "Create"}
             </button>
           </div>
         </form>

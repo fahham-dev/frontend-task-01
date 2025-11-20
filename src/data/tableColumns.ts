@@ -15,4 +15,8 @@ export const columns = [
     header: "Level",
     accessorKey: "level",
   },
+  {
+    header: "Actions",
+    accessorKey: "actions",
+  },
 ];

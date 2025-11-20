@@ -34,6 +34,32 @@ export function addStudentToStorage(student: Student): Student {
   return newStudent;
 }
 
+export function updateStudentInStorage(student: Student): Student | null {
+  try {
+    const current = getStoredStudents();
+    if (!student.id) return null;
+    const idx = current.findIndex((s) => s.id === student.id);
+    if (idx === -1) return null;
+    const updated: Student = { ...student, level: Number(student.level) };
+    current[idx] = updated;
+    saveStudents(current);
+    return updated;
+  } catch {
+    return null;
+  }
+}
+
+export function deleteStudentById(id: number): boolean {
+  try {
+    const current = getStoredStudents();
+    const next = current.filter((s) => s.id !== id);
+    saveStudents(next);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function clearStoredStudents() {
   try {
     localStorage.removeItem(STORAGE_KEY);

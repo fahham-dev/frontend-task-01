@@ -1,12 +1,24 @@
-const CustomButton = ({ openModal }: { openModal: () => void }) => {
+import { cn } from "../../lib/utils";
+
+const CustomButton = ({
+  onClick,
+  label,
+  className,
+}: {
+  onClick: () => void;
+  label: string;
+  className: string;
+}) => {
   return (
     <button
-      className="mb-4 bg-[#0000001c] dark:bg-[#0000002f] rounded-lg py-3 px-4 dark:border-[#ffffff] border-[#c7c7c7] border-2 cursor-pointer"
-      onClick={openModal}
+      type="button"
+      onClick={onClick}
+      className={cn(
+        "inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-slate-700 cursor-pointer",
+        className
+      )}
     >
-      <p className="font-bold dark:text-[#dcdcdc] text-[#2b2b2b]">
-        Add Student
-      </p>
+      {label}
     </button>
   );
 };
