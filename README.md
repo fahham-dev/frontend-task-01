@@ -1,3 +1,10 @@
+<a href="public/demo.mp4" target="_blank">
+	<img src="https://img.icons8.com/ios-filled/100/000000/play-button-circled.png" alt="Play Demo Video" width="80" style="vertical-align:middle; margin-right:10px;"/>
+	<b>Watch Demo Video</b>
+</a>
+
+<br/>
+
 <video controls width="100%" src="public/demo.mp4">Your browser does not support the video tag. Download the demo from `public/demo.mp4`.</video>
 
 **Overview**
