@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+<video controls width="100%" src="public/demo.mp4">Your browser does not support the video tag. Download the demo from `public/demo.mp4`.</video>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Overview**
 
-Currently, two official plugins are available:
+This is the frontend for the SIM HEALTH AI task (React + Vite + TypeScript). The demo video above (`public/demo.mp4`) showcases the app's main functionality: responsive UI, CRUD operations for student data, and client-side caching (stored in browser cache / `localStorage`).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Folder Structure**
 
-## React Compiler
+- `public/` : static files (includes `demo.mp4`)
+- `src/` : application source
+	- `App.tsx`
+	- `main.tsx`
+	- `assets/`
+	- `components/`
+		- `CreateStudentModel.tsx`
+		- `HeaderWidget.tsx`
+		- `StudentTable.tsx`
+		- `ui/`
+			- `button.tsx`
+			- `CustomButton.tsx`
+			- `DropDown.tsx`
+			- `Pagination.tsx`
+			- `TextField.tsx`
+	- `data/`
+		- `students.ts`
+		- `tableColumns.ts`
+	- `lib/`
+		- `utils.ts`
+	- `pages/`
+		- `StudentsPage.tsx`
+	- `services/`
+		- `storageService.ts` (caching layer)
+	- `styles/`
+		- `index.css`
+	- `types/`
+		- `dropDown.ts`
+		- `paginate.ts`
+		- `student.ts`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Installation**
 
-## Expanding the ESLint configuration
+- **Prerequisites:** Node.js (recommended v16+), `npm` or `pnpm` installed.
+- **Install dependencies:**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+	```powershell
+	npm install
+	```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Run (development)**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Start the dev server with:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+	```powershell
+	npm run dev
+	```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Open the URL printed by Vite (usually `http://localhost:5173`). The demo video will be served at `/demo.mp4` while the dev server is running.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Build & Preview**
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Build for production:
+
+	```powershell
+	npm run build
+	```
+
+- Preview the production build locally:
+
+	```powershell
+	npm run preview
+	```
+
+**Features**
+
+- **Responsive UI:** Components and pages adapt to different screen sizes (check the demo video for a quick walkthrough).
+- **Client-side caching:** App uses a simple caching layer (`src/services/storageService.ts`) to persist student data in browser storage (`localStorage`) so that data remains between reloads.
+- **CRUD operations:** Create, read, update and delete student records are performed in-memory and persisted to cache — see `CreateStudentModel.tsx` and `StudentTable.tsx`.
+- **Lightweight stack:** Built with React, Vite and TypeScript for fast development iteration.
+
+**Notes**
+
+- The demo video file is located at `public/demo.mp4` and demonstrates responsiveness, caching behavior, and CRUD flows.
+- When running the dev server the video can be previewed at `http://localhost:5173/demo.mp4`.
+- If you want the demo embedded elsewhere (e.g., a docs site), the `<video>` tag at the top of this README is a simple inline example.
+
+If you'd like, I can also add a short CONTRIBUTING or HOWTO that explains where to change the cache key, or add screenshots/GIFs for README viewers where GitHub doesn't render local MP4s inline.
+
