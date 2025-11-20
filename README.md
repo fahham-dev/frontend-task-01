@@ -1,5 +1,10 @@
-
-
+<div style="position: relative; width: fit-content; margin: auto;">
+	<a href="https://drive.google.com/file/d/1NjPumumvjBCWaDsKOz977TDqh0bqjGNJ/view?usp=sharing" target="_blank">
+		<img src="public/snap.png"
+			 alt="Demo Video Preview"
+			 style="width: 100%; max-width: 600px; border-radius: 8px; display: block;">
+	</a>
+</div>
 
 **Overview**
 
@@ -9,51 +14,51 @@ This is the frontend for the SIM HEALTH AI task (React + Vite + TypeScript). The
 
 - `public/` : static files (includes `demo.mp4`)
 - `src/` : application source
-	- `App.tsx`
-	- `main.tsx`
-	- `assets/`
-	- `components/`
-		- `CreateStudentModel.tsx`
-		- `HeaderWidget.tsx`
-		- `StudentTable.tsx`
-		- `ui/`
-			- `button.tsx`
-			- `CustomButton.tsx`
-			- `DropDown.tsx`
-			- `Pagination.tsx`
-			- `TextField.tsx`
-	- `data/`
-		- `students.ts`
-		- `tableColumns.ts`
-	- `lib/`
-		- `utils.ts`
-	- `pages/`
-		- `StudentsPage.tsx`
-	- `services/`
-		- `storageService.ts` (caching layer)
-	- `styles/`
-		- `index.css`
-	- `types/`
-		- `dropDown.ts`
-		- `paginate.ts`
-		- `student.ts`
+  - `App.tsx`
+  - `main.tsx`
+  - `assets/`
+  - `components/`
+    - `CreateStudentModel.tsx`
+    - `HeaderWidget.tsx`
+    - `StudentTable.tsx`
+    - `ui/`
+      - `button.tsx`
+      - `CustomButton.tsx`
+      - `DropDown.tsx`
+      - `Pagination.tsx`
+      - `TextField.tsx`
+  - `data/`
+    - `students.ts`
+    - `tableColumns.ts`
+  - `lib/`
+    - `utils.ts`
+  - `pages/`
+    - `StudentsPage.tsx`
+  - `services/`
+    - `storageService.ts` (caching layer)
+  - `styles/`
+    - `index.css`
+  - `types/`
+    - `dropDown.ts`
+    - `paginate.ts`
+    - `student.ts`
 
 **Installation**
 
 - **Prerequisites:** Node.js (recommended v16+), `npm` or `pnpm` installed.
 - **Install dependencies:**
 
-	```powershell
-	npm install
-	```
+  ```powershell
+  npm install
+  ```
 
 **Run (development)**
 
 - Start the dev server with:
 
-	```powershell
-	npm run dev
-	```
+  ```powershell
+  npm run dev
+  ```
 
 - Open the URL printed by Vite (usually `http://localhost:5173`). The demo video will be served at `/demo.mp4` while the dev server is running.
 
@@ -61,15 +66,15 @@ This is the frontend for the SIM HEALTH AI task (React + Vite + TypeScript). The
 
 - Build for production:
 
-	```powershell
-	npm run build
-	```
+  ```powershell
+  npm run build
+  ```
 
 - Preview the production build locally:
 
-	```powershell
-	npm run preview
-	```
+  ```powershell
+  npm run preview
+  ```
 
 **Features**
 
@@ -85,4 +90,3 @@ This is the frontend for the SIM HEALTH AI task (React + Vite + TypeScript). The
 - If you want the demo embedded elsewhere (e.g., a docs site), the `<video>` tag at the top of this README is a simple inline example.
 
 If you'd like, I can also add a short CONTRIBUTING or HOWTO that explains where to change the cache key, or add screenshots/GIFs for README viewers where GitHub doesn't render local MP4s inline.
-
