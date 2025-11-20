@@ -46,6 +46,12 @@ This is the frontend for the SIM HEALTH AI task (React + Vite + TypeScript). The
 **Installation**
 
 - **Prerequisites:** Node.js (recommended v16+), `npm` or `pnpm` installed.
+- **Clone the repo:**
+
+  ```powershell
+  https://github.com/fahham-dev/frontend-task-01.git
+  ```
+
 - **Install dependencies:**
 
   ```powershell
@@ -88,5 +94,3 @@ This is the frontend for the SIM HEALTH AI task (React + Vite + TypeScript). The
 - The demo video file is located at `public/demo.mp4` and demonstrates responsiveness, caching behavior, and CRUD flows.
 - When running the dev server the video can be previewed at `http://localhost:5173/demo.mp4`.
 - If you want the demo embedded elsewhere (e.g., a docs site), the `<video>` tag at the top of this README is a simple inline example.
-
-If you'd like, I can also add a short CONTRIBUTING or HOWTO that explains where to change the cache key, or add screenshots/GIFs for README viewers where GitHub doesn't render local MP4s inline.
