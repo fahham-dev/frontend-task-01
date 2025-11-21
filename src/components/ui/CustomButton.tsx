@@ -5,7 +5,7 @@ const CustomButton = ({
   label,
   className,
 }: {
-  onClick: () => void;
+  onClick?: () => void;
   label: string;
   className: string;
 }) => {
