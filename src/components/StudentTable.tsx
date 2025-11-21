@@ -1,6 +1,7 @@
 import type { Student } from "@/types/student";
 import { columns } from "@/data/tableColumns";
 import CustomButton from "./ui/CustomButton";
+import ShowDialog from "./ui/ShowDialog";
 
 const StudentTable = ({
   students,
@@ -62,11 +63,17 @@ const StudentTable = ({
                     label="Edit"
                     className="bg-[#efff97da] hover:bg-[#e1f669]"
                   />
-                  <CustomButton
+                  <ShowDialog
                     onClick={() => onDelete && onDelete(student)}
-                    label="Delete"
-                    className="bg-[#ff9797da] hover:bg-[#fd8282]"
-                  />
+                    titleMessage="Are you sure you want to delete this student?"
+                    descriptionMessage={`Deleting student ${student.name} cannot be undone.`}
+                    succeessButtonLabel="Delete"
+                  >
+                    <CustomButton
+                      label="Delete"
+                      className="bg-[#ff9797da] hover:bg-[#fd8282]"
+                    />
+                  </ShowDialog>
                 </td>
               </tr>
             ))}
